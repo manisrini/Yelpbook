@@ -24,7 +24,7 @@ app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"))
 app.use(methodOverride("_method"))
 
-mongoose.connect("mongodb://localhost/yelpbook_v11",{
+mongoose.connect(process.env.DBURL,{
 	useNewUrlParser: true,
   	useUnifiedTopology: true
 })
