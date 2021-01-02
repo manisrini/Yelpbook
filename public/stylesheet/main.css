@@ -1,0 +1,50 @@
+/* .my_jumbo{
+	width : 700px;
+	margin : 0 auto;
+	margin-top : 10px;
+} */
+
+div .login{
+	background-color : #eee;
+	width : 40%;
+	margin : 0 auto;
+}
+
+.login_form{
+	
+	
+	width : 50%;
+	margin : 30px auto;
+	
+		
+	
+}
+
+#flash{
+	margin-top : 10px;
+}
+.thumbnail img{
+	width : 100%;
+}
+
+.thumbnail{
+	padding : 0;
+}
+
+.thumbnail .caption-full{
+	padding : 9px;
+
+}
+
+.thumbnail .image{
+	background-position : bottom;
+	background-size : cover;
+}
+
+div #deleteid{
+	display : inline;
+}
+
+#comment-delete{
+	display : inline;
+}

@@ -1,0 +1,85 @@
+body
+{
+	background-color : #000;
+}
+
+#landing-header{
+	z-index : 1;
+	position : relative;
+	text-align : center;
+	padding-top : 220px;
+}
+
+.slideshow {
+	list-style-type : none;
+	position : fixed;
+	width : 100%;
+	height : 100%;
+	z-index : 0;
+	margin : 0;
+	padding : 0;
+	top : 0;
+	left : 0;
+		
+}
+
+.slideshow li{
+	position : absolute;
+	top : 0;
+	left  : 0;
+	width : 100%;
+	height : 100%;
+    background-size: cover;
+  	background-position: 50% 50%;
+ 	background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+	animation : ImageAnimation 50s  linear infinite;
+}
+
+.slideshow li:nth-child(1){
+	background-image : url("https://images.unsplash.com/photo-1600189261900-da2183219c28?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80")
+}
+
+.slideshow li:nth-child(2){
+	background-image : url("https://images.unsplash.com/photo-1598618023885-19ba276b562f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+	animation-delay : 10s;
+}
+
+.slideshow li:nth-child(3){
+	background-image : url("https://images.unsplash.com/photo-1530538987395-032d1800fdd4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+	animation-delay : 20s;
+}
+
+.slideshow li:nth-child(4){
+	background-image : url("https://images.unsplash.com/photo-1519682337058-a94d519337bc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+	animation-delay : 30s;
+}
+
+.slideshow li:nth-child(5){
+	background-image : url("https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80");
+	animation-delay : 40s;
+}
+
+@keyframes ImageAnimation{
+	0%{
+		opacity : 0;
+		animation-timing-function : ease-in ;
+	}
+	
+	10%{
+		opacity : 1;
+		animation-timing-function : ease-out;
+	}
+	
+	20%{
+		opacity : 1;
+	}
+	
+	30%{
+		opacity : 0;
+	}
+}
+#landing-header h1{
+	color : white;
+}

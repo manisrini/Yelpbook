@@ -1,0 +1,94 @@
+<%- include("../partials/header.ejs") %>
+<link rel="stylesheet" href="../stylesheet/star.css">
+<div style ="padding-top : 10px;" class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<h2 class="text-muted">Yelpcamp</h2>
+			<div class="list-group">
+				<li class="list-group-item">Info1</li>
+				<li class="list-group-item">INfo2</li>
+				<li class="list-group-item">Info3</li>
+			</div>
+		</div>
+		
+		<div class="col-md-9">
+			<div class="thumbnail">
+				<img class="img-responsive" src="<%=foundBook.image%>">
+				<div class="caption-full">
+					<h4 class="pull-right">$9</h4>
+					<h5><strong><%= foundBook.name%></strong></h5>
+					<p><%=foundBook.description%></p>
+					<p>Created By 
+						<strong><%=foundBook.author.username %></strong>
+					</p>
+					<%if(currentUser && currentUser._id.equals(foundBook.author.id)){%>
+						<a href="/books/<%=foundBook._id%>/edit" class="btn btn-info btn-xs">Edit</a>
+					
+						<form id="deleteid" action = "/books/<%=foundBook._id %>?_method=DELETE" method="POST">
+							<button class="btn btn-danger btn-xs">
+								Delete
+							</button>
+						</form>
+					<%}%>
+ 				</div>
+			</div>
+			
+			<div class="well">
+				<div class="text-right">
+					<a href="<%= foundBook._id %>/comments/new" class="btn btn-success pull-right">Add a new comment</a>	
+				</div>
+				<hr>
+				<hr>
+				<% foundBook.comments.forEach(function(comment){ %>
+				<div class="row">
+					<div class="col-md-12 ">
+						<strong><%= comment.author.username %></strong>
+							 
+						  <p class="starability-result" data-rating="<%=comment.rating %>">
+							Rated: <%=comment.rating%> stars
+						  </p>
+						<span class="pull-right">10days ago</span>
+						<p><%=comment.text %></p>
+						<%if(currentUser && currentUser._id.equals(comment.author.id)){%>
+						
+							
+						
+							<a class="btn btn-xs btn-info" 	href="/books/<%=foundBook._id%>/comments/<%=comment._id%>/edit">
+								Edit
+							</a>
+							<form id="comment-delete"action="/books/<%=foundBook._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+								<button class="btn btn-xs btn-danger">
+									Delete
+								</button>
+							</form>
+						<hr>
+						
+						<% } %>
+					</div>
+						
+				</div>
+				
+				
+				
+				<% }) %>
+			</div>
+		</div>
+		
+	</div>
+	
+</div>
+
+
+
+<div>
+	
+</div>
+
+<div>
+	
+</div>
+
+
+
+
+<%- include("../partials/footer.ejs") %>
