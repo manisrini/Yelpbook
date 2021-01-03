@@ -85,7 +85,7 @@ router.put("/books/:id",middleware.checkBookOwnership,function(req,res){
 
 //delete
 router.delete("/books/:id",middleware.checkBookOwnership,function(req,res){
-	Book.findbyIdAndRemove(req.params.id,function(err,deletedBook){
+	Book.findByIdAndRemove(req.params.id,function(err,deletedBook){
 		if(err){
 			console.log(err);
 		}else{
