@@ -24,12 +24,14 @@ router.post("/books",middleware.isLoggedin,function(req,res){
 	var name = req.body.name
 	var image = req.body.image
 	var desc = req.body.desc
+	var price = req.body.price
+	var genre = req.body.genre
 	var author = {
 		id : req.user._id,
 		username  :req.user.username
 	}
 	
-	var newBook = {name : name , image:image ,description:desc , author:author}
+	var newBook = {name : name , image:image ,description:desc , author:author , price:price , genre:genre}
 	Book.create(newBook,function(err,addedBook){
 		if(err){
 			console.log(err);
