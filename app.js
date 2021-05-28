@@ -24,7 +24,7 @@ app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"))
 app.use(methodOverride("_method"))
 
-
+console.log(process.env.DBURL)
 mongoose.connect(process.env.DBURL,{
 	useNewUrlParser: true,
   	useUnifiedTopology: true
