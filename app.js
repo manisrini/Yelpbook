@@ -11,20 +11,19 @@ var methodOverride = require("method-override");
 var Book =require("./models/book.js");
 var Comment = require("./models/comment")
 var User = require("./models/user")
-var seedDB = require("./seed.js");
+
 
 
 var commentRoutes = require("./routes/comment"),
 	bookRoutes    = require("./routes/book"),
 	authRoutes 	  = require("./routes/index");
 
-// seedDB();
+
 app.use(bodyParser.urlencoded({extended:true}))
 app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"))
 app.use(methodOverride("_method"))
 
-console.log(process.env.DBURL)
 mongoose.connect(process.env.DBURL,{
 	useNewUrlParser: true,
   	useUnifiedTopology: true
@@ -35,6 +34,7 @@ mongoose.connect(process.env.DBURL,{
 .catch(error => {
 	console.log(error);
 })
+
 
 app.use(flash());
 //passport config
@@ -65,6 +65,6 @@ app.get("/",function(req,res){
 	res.render("landing")
 })
 
-app.listen(process.env.PORT || 3000 , process.env.IP , function(){
+app.listen(process.env.PORT || 3002 , process.env.IP , function(){
 	console.log("Server started!!!!")
 })

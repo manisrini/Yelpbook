@@ -5,11 +5,14 @@
 		<div class="col-md-3">
 			<h2 class="text-muted">Yelpcamp</h2>
 			<div class="list-group">
-				<li class="list-group-item">Fantasy</li>
+				
+				<li class="list-group-item">
+					Fantasy
+				</li>
 				<li class="list-group-item">Fiction</li>
-				<li class="list-group-item">Poetry</li>
+				<li class="list-group-item ">Poetry</li>
 				<li class="list-group-item">Truestory</li>
-				<li class="list-group-item">Poetry</li>
+				
 				<li class="list-group-item">Horror</li>
 				<li class="list-group-item">Thriller</li>
 				<li class="list-group-item">Documentary</li>
@@ -21,7 +24,7 @@
 			<div class="thumbnail">
 				<img class="img-responsive" src="<%=foundBook.image%>">
 				<div class="caption-full">
-					<h4 class="pull-right">$<%= foundBook.price %></h4>
+					<h4 class="pull-right">Rs <%= foundBook.price %></h4>
 					<h5><strong><%= foundBook.name%></strong></h5>
 					<p><%=foundBook.description%></p>
 					<p>Created By 
@@ -91,8 +94,21 @@
 </div>
 
 <div>
-	
+<input type="hidden" id="genre" value="<%=foundBook.genre %>">
 </div>
+
+<script>
+	var genre = document.getElementById("genre").value;
+	
+	var li_text=document.getElementsByClassName("list-group-item");
+	for(var i=0;i<li_text.length;i++){
+		if(li_text[i].innerText.toLowerCase() === genre.toLowerCase())
+		{
+			li_text[i].classList.add("active");
+		}	
+	}
+
+</script>
 
 
 
